@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import OnBoarding from "./(routes)/onboarding";
+import { Stack } from "expo-router";
 
 
 export {
@@ -50,7 +51,10 @@ function RootLayoutNav() {
         isLoggedIn ? (
           <View></View>
         ) : (
-          <OnBoarding />
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="index" />
+            <Stack.Screen name="(routes)/welcome-intro/index" />
+          </Stack>
         )
       }
     </>
